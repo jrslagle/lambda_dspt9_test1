@@ -1,5 +1,6 @@
 import pandas as pd
 
+
 def enlarge(n):
     """
     Param n is a number
@@ -7,9 +8,11 @@ def enlarge(n):
     """
     return n * 100
 
+
 def null_count(df) -> int:
     # the total number of nulls in a dataframe as an int
     return df.isna().sum().sum()
+
 
 def year_month_day(raw_dates):
     # Convert to datetime64[ns] if possible
@@ -23,9 +26,10 @@ def year_month_day(raw_dates):
 
     # Extract components and return
     return pd.DataFrame({
-        'year':dates.dt.year,
-        'month':dates.dt.month,
-        'day':dates.dt.day})
+        'year': dates.dt.year,
+        'month': dates.dt.month,
+        'day': dates.dt.day})
+
 
 if __name__ == "__main__":
     # only run the code below IF this script is invoked from the command-line
