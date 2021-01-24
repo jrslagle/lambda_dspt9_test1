@@ -1,21 +1,33 @@
-import pandas as pd
-
-
 def enlarge(n):
     """
-    Param n is a number
-    Function will enlarge the number
+    Multiply a number by 100.
+
+    :param n: the number to enlarge
+    :returns: the number multiplied by 100
     """
     return n * 100
 
 
 def null_count(df) -> int:
-    # the total number of nulls in a dataframe as an int
+    """
+    Get the total number of nulls in a dataframe
+
+    :param df: the pandas DataFrame to inspect
+    :returns: The total number of nulls as an int
+    """
+    import pandas as pd
     return df.isna().sum().sum()
 
 
 def year_month_day(raw_dates):
+    """
+    Split a date column into three columns: Year, Month, Day
+
+    :param raw_dates: a Series of dates as type string or datetime64[ns]
+    :returns: A DataFrame with columns ['year', 'month', 'day']
+    """
     # Convert to datetime64[ns] if possible
+    import pandas as pd
     datatype = raw_dates.dtype
     if datatype == 'object':
         dates = pd.to_datetime(raw_dates, infer_datetime_format=True)
